@@ -1,0 +1,82 @@
+.login-box {
+    height: 100%;
+    background: url('../../assets/img/login.jpeg') no-repeat center center;
+    background-size: 100% 100%;
+    .main-box {
+        height: 100%;
+        background: rgba(66, 66, 66, 0.2);
+        padding: 20px 30px;
+        .logo {
+            margin: 50px 0 20px;
+            color: #fff;
+            font-size: 42px;
+            i {
+                font-size: 48px;
+                margin-right: 10px;
+            }
+        }
+        .form-login {
+            .form-group {
+                position: relative;
+                .ant-input {
+                    background: rgba(0,0,0,0);
+                    border:0;
+                    border-radius: 0; 
+                    border-bottom: 1px solid #d9d9d9; 
+                    outline: none;
+                    color: #fff;
+                    height: 42px;
+                    &:focus,&:hover {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                    
+                }
+                .icon-toggle {
+                    position: absolute;
+                    right: 10px;
+                    top: 16px;
+                    color: #ccc;
+                }
+                .drop-user {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    ul li {
+                        height: 42px;
+                        border-bottom: 1px solid #d9d9d9;
+                        color: #fff;
+                        line-height: 32px;
+                    }
+                }
+            }
+            
+        }
+        .tips {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+
+
+.ant-select-dropdown[_ngcontent-c2] {
+    background: rgba(0,0,0,0);
+    border:0;
+    border-radius: 0; 
+    border-bottom: 1px solid #d9d9d9;
+    .ant-select-dropdown-menu-item {
+        color: '#fff';
+    }
+}
+.ant-select-dropdown-menu-item-disabled:hover {
+    background: rgba(0,0,0,0);
+    border:0;
+    border-radius: 0; 
+    border-bottom: 1px solid #d9d9d9;
+}

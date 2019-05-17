@@ -1,0 +1,94 @@
+<div class="sign-up-content">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzXs]="6" nzRequired nzFor="email">邮箱</nz-form-label>
+      <nz-form-control [nzXs]="14" >
+        <input nz-input formControlName="email" id="email" />
+        <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+          请输入邮箱
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzXs]="6" nzRequired nzFor="username">用户名</nz-form-label>
+        <nz-form-control [nzXs]="14">
+          <input nz-input formControlName="username" />
+          <nz-form-explain *ngIf="validateForm.get('username')?.dirty && validateForm.get('username')?.hasError('required')">
+            请输入用户名
+          </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzXs]="6" nzFor="password" nzRequired>密码</nz-form-label>
+      <nz-form-control [nzXs]="14">
+        <input
+          nz-input
+          type="password"
+          id="password"
+          formControlName="password"
+          (ngModelChange)="updateConfirmValidator()"
+        />
+        <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors"
+          >请输入密码!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzXs]="6" nzFor="checkPassword" nzRequired>确认密码</nz-form-label>
+      <nz-form-control [nzXs]="14">
+        <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+        <nz-form-explain
+          *ngIf="validateForm.get('checkPassword')?.dirty && validateForm.get('checkPassword')?.errors"
+        >
+          <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('required')">
+            请输入验证密码
+          </ng-container>
+          <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('confirm')">
+            确认密码不正确
+          </ng-container>
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzXs]="6" nzFor="phoneNumber" nzRequired>电话</nz-form-label>
+      <nz-form-control [nzXs]="14" [nzValidateStatus]="validateForm.controls['phoneNumber']">
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+          <ng-template #addOnBeforeTemplate>
+            <nz-select formControlName="phoneNumberPrefix" style="width: 70px;">
+              <nz-option nzLabel="+86" nzValue="+86"></nz-option>
+              <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+        </nz-input-group>
+        <nz-form-explain *ngIf="validateForm.get('phoneNumber')?.dirty && validateForm.get('phoneNumber')?.errors"
+          >Please input your phone number!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzXs]="6" nzFor="sex" nzRequired>性别</nz-form-label>
+      <nz-form-control [nzXs]="14" [nzValidateStatus]="validateForm.controls['sex']">
+        <nz-radio-group formControlName="sex">
+          <label nz-radio nzValue="1">男</label>
+          <label nz-radio nzValue="2">女</label>
+        </nz-radio-group>
+        <nz-form-explain *ngIf="validateForm.get('sex')?.dirty && validateForm.get('sex')?.errors">
+          禁止不明性别注册
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 提交按钮 -->
+    <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="24" >
+          <button nz-button nzType="primary" nzBlock>注 &nbsp;&nbsp; 册</button>
+        </nz-form-control>
+      </nz-form-item>
+
+  </form>
+</div>

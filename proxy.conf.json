@@ -1,0 +1,10 @@
+{
+    "/":{
+        "target": "http://10.10.19.140:7200",
+        "secure": false
+    },
+    "/api":{
+        "target": "http://10.10.19.140:7200",
+        "secure": false
+    }
+}
