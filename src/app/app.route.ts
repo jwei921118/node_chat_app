@@ -8,7 +8,7 @@ export const appRoute: Routes = [
     {path: '' , redirectTo: '/login', pathMatch: 'full' },
     {path: 'home' , component: HomeComponent ,
         children: [
-            {path: '' , redirectTo: '/message'},
+            {path: '' , component: MessagePageComponent},
             {path: 'message' , component: MessagePageComponent }
         ]
     },

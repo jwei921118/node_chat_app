@@ -12,6 +12,7 @@ router.use(function setHeader(req,res,next) {
     next();
 });
 router.get('/list' , function(req ,res) {
+    console.log(req.cookies);
     userCtrl.getUser()
     .then((data) => {
         res.send(data);

@@ -26,6 +26,7 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "cookie-parser": "^1.4.4",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "koa-cors": "0.0.16",
