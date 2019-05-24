@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     this.sus.ajaxPost('login' , param)
     .subscribe((res) => {
       if (res.code === 0) {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home/message');
       }
       this.message.info(res.message);
     });
