@@ -29,6 +29,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AddresBookComponent } from './pages/addres-book/addres-book.component';
+import { MomentComponent } from './pages/moment/moment.component';
+import { MyInfoComponent } from './pages/my-info/my-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,9 @@ import { FooterComponent } from './components/footer/footer.component';
     SignUpComponent,
     HomeComponent,
     MessagePageComponent,
+    AddresBookComponent,
+    MomentComponent,
+    MyInfoComponent,
     HeaderComponent,
     FooterComponent
   ],

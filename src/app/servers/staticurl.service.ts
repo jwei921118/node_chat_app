@@ -8,7 +8,7 @@ export class StaticUrlService {
     ) {
 
         this.URLS = {
-            login: 'api/login',
+            login: '/api/login',
             userlist: '/api/user/list',
             userRegister: '/api/register'
         };
@@ -19,9 +19,9 @@ export class StaticUrlService {
      * @param key 地址key
      * @param data 参数
      */
-    ajaxGet(key, data) {
+    ajaxGet(key, data?) {
         const path = window.location.origin + this.URLS[key];
-        return this.httpService.request(path, data , 'GET');
+        return this.httpService.request(path, data ? data : {} , 'GET');
     }
 
     /**

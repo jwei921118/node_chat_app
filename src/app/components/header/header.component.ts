@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-
+  private infoCount: Number = 0;
   constructor() { }
 
   ngOnInit() {

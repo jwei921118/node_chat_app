@@ -1,7 +1,9 @@
 import { Component, OnInit , ViewEncapsulation} from '@angular/core';
-import { HttpService } from '../servers/http.service';
-import { UploaderServices } from '../servers/uploader.service';
+// import { HttpService } from '../servers/http.service';
+// import { UploaderServices } from '../servers/uploader.service';
+import { StaticUrlService } from '../servers/staticurl.service';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 import io from 'socket.io-client';
 
 @Component({
@@ -14,15 +16,14 @@ export class LoginComponent implements OnInit {
 
   cookieUser: any = [];
   user = {
-    name: '',
-    psd: '',
-    userAccount: '',
+    username: '',
+    password: ''
   };
   cookieUserShow = false;
   constructor(
-    private httpService: HttpService,
-    private uploaderServices: UploaderServices,
-    private router: Router
+    private router: Router,
+    private sus: StaticUrlService,
+    private message: NzMessageService
   ) {
     this.cookieUser = [];
   }
@@ -49,17 +50,13 @@ export class LoginComponent implements OnInit {
    * 登录
    */
   login() {
-    // this.httpService.request('http://10.10.19.140:4200/a', {id: 1})
-    // .subscribe(res => {
-    //   console.log(res);
-    // });
-    // this.httpService.request('http://10.10.19.140:4200' , {id: 2}, 'POST')
-    // .subscribe(res => {
-    //   console.log(res);
-    // });
-    this.uploaderServices.request('http://10.10.19.140:4200', {id: 1} , 'POST' , this.progress)
+    const param = {...this.user};
+    this.sus.ajaxPost('login' , param)
     .subscribe((res) => {
-      console.log(res);
+      if (res.code === 0) {
+        this.router.navigateByUrl('/home/message');
+      }
+      this.message.info(res.message);
     });
   }
 
