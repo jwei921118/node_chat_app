@@ -1,28 +1,28 @@
 <div class="sign-up-content">
-  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <form class="form-container" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
     <nz-form-item>
-      <nz-form-label [nzXs]="6" nzRequired nzFor="email">邮箱</nz-form-label>
-      <nz-form-control [nzXs]="14" >
+      <nz-form-label [nzSpan]="6" [nzXs]="6" nzRequired nzFor="email">{{'signUp.emailText' | translate }}</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzXs]="18" >
         <input nz-input formControlName="email" id="email" />
         <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
-          请输入邮箱
+            {{'signUp.emailDirty' | translate }}
         </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label [nzXs]="6" nzRequired nzFor="username">用户名</nz-form-label>
-        <nz-form-control [nzXs]="14">
+        <nz-form-label [nzSpan]="6" nzRequired nzFor="username">{{'signUp.userText' | translate }}</nz-form-label>
+        <nz-form-control [nzSpan]="18">
           <input nz-input formControlName="username" />
           <nz-form-explain *ngIf="validateForm.get('username')?.dirty && validateForm.get('username')?.hasError('required')">
-            请输入用户名
+              {{'signUp.userDirty' | translate }}
           </nz-form-explain>
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzXs]="6" nzFor="password" nzRequired>密码</nz-form-label>
-      <nz-form-control [nzXs]="14">
+      <nz-form-label [nzSpan]="6" nzFor="password" nzRequired>{{'signUp.passwordText' | translate }}</nz-form-label>
+      <nz-form-control [nzSpan]="18">
         <input
           nz-input
           type="password"
@@ -31,31 +31,31 @@
           (ngModelChange)="updateConfirmValidator()"
         />
         <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors"
-          >请输入密码!</nz-form-explain
+          >{{'signUp.passwordDirty' | translate }}</nz-form-explain
         >
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzXs]="6" nzFor="checkPassword" nzRequired>确认密码</nz-form-label>
-      <nz-form-control [nzXs]="14">
+      <nz-form-label [nzSpan]="6" nzFor="checkPassword" nzRequired>{{'signUp.checkPasswordText' | translate }}</nz-form-label>
+      <nz-form-control [nzSpan]="18">
         <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
         <nz-form-explain
           *ngIf="validateForm.get('checkPassword')?.dirty && validateForm.get('checkPassword')?.errors"
         >
           <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('required')">
-            请输入验证密码
+              {{'signUp.checkPasswordDirty' | translate }}
           </ng-container>
           <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('confirm')">
-            确认密码不正确
+              {{'signUp.checkPasswordError' | translate }}
           </ng-container>
         </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzXs]="6" nzFor="phoneNumber" nzRequired>电话</nz-form-label>
-      <nz-form-control [nzXs]="14" [nzValidateStatus]="validateForm.controls['phoneNumber']">
+      <nz-form-label [nzSpan]="6" nzFor="phoneNumber" nzRequired>{{'signUp.telphoneText' | translate }}</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzValidateStatus]="validateForm.controls['phoneNumber']">
         <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
           <ng-template #addOnBeforeTemplate>
             <nz-select formControlName="phoneNumberPrefix" style="width: 70px;">
@@ -66,27 +66,27 @@
           <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
         </nz-input-group>
         <nz-form-explain *ngIf="validateForm.get('phoneNumber')?.dirty && validateForm.get('phoneNumber')?.errors"
-          >请输入电话号码</nz-form-explain
+          >{{'signUp.telphoneDirty' | translate }}</nz-form-explain
         >
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzXs]="6" nzFor="sex" nzRequired>性别</nz-form-label>
-      <nz-form-control [nzXs]="14" [nzValidateStatus]="validateForm.controls['sex']">
+      <nz-form-label [nzSpan]="6" nzFor="sex" nzRequired>{{'commom.ganderText' | translate }}</nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzValidateStatus]="validateForm.controls['sex']">
         <nz-radio-group formControlName="sex">
-          <label nz-radio nzValue="1">男</label>
-          <label nz-radio nzValue="2">女</label>
+          <label nz-radio nzValue="1">{{'commom.maleText' | translate }}</label>
+          <label nz-radio nzValue="2">{{'commom.femaleText' | translate }}</label>
         </nz-radio-group>
         <nz-form-explain *ngIf="validateForm.get('sex')?.dirty && validateForm.get('sex')?.errors">
-          禁止不明性别注册
+            {{'signUp.ganderDirty' | translate }}
         </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <!-- 提交按钮 -->
-    <nz-form-item nz-row style="margin-bottom:8px;">
-        <nz-form-control [nzSpan]="24" >
-          <button nz-button nzType="primary" nzBlock>注 &nbsp;&nbsp; 册</button>
+    <nz-form-item nz-row style="margin-bottom:10px;">
+        <nz-form-control [nzSpan]="12" >
+          <button nz-button nzType="primary" nzBlock>{{'signUp.signUpText' | translate }}</button>
         </nz-form-control>
       </nz-form-item>
 

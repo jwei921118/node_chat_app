@@ -5,7 +5,8 @@
             "name": "nodeServer",
             "script": "./server/nodeServer.js",
             "instances": 2,
-            "exec_mode": "cluster"
+            "exec_mode": "cluster",
+            "watch": true
         },
         {
             "name": "scoketServer",

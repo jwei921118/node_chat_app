@@ -3,7 +3,7 @@
     "commom": {
         "ganderText": "gender",
         "maleText": "male",
-        "female": "female"
+        "femaleText": "female"
     },
     "login": {
         "toggleL": "Switch language",
@@ -29,5 +29,16 @@
         "telphoneDirty": "Please enter telphone!",
         "ganderDirty": "Prohibition of unidentified gender registration",
         "signUpText": "Registration"
+    },
+    "cpt": {
+        "header": {
+            "messageText": "message"
+        },
+        "footer": {
+            "tab1": "Chat",
+            "tab2": "AddBooks",
+            "tab3": "Monents",
+            "tab4": "Me"
+        }
     }
 }

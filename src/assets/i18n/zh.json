@@ -3,7 +3,7 @@
     "commom": {
         "ganderText": "性别",
         "maleText": "男",
-        "female": "女"
+        "femaleText": "女"
     },
     "login": {
         "toggleL": "切换语言",
@@ -29,5 +29,16 @@
         "telphoneDirty": "请输入电话号码",
         "ganderDirty": "禁止不明性别注册",
         "signUpText": "注  册"
+    },
+    "cpt": {
+        "header": {
+            "messageText": "信息"
+        },
+        "footer": {
+            "tab1": "聊天",
+            "tab2": "通讯录",
+            "tab3": "时刻",
+            "tab4": "我的"
+        }
     }
 }

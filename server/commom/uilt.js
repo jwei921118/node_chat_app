@@ -1,7 +1,7 @@
 
 'use strict'
 
-function map(temp, real) {
+function mapObject(temp, real) {
     for (const key in temp) {
         if (temp.hasOwnProperty(key)) {
             temp[key] = real[key];
@@ -9,4 +9,4 @@ function map(temp, real) {
     }
 }
 
-module.exports = { map };
+module.exports = { mapObject };
