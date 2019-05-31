@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+
+// 国际化
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // 模块
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
@@ -32,6 +36,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AddresBookComponent } from './pages/addres-book/addres-book.component';
 import { MomentComponent } from './pages/moment/moment.component';
 import { MyInfoComponent } from './pages/my-info/my-info.component';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/' , '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,13 +63,21 @@ import { MyInfoComponent } from './pages/my-info/my-info.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgZorroAntdModule,
-    HttpModule
+    HttpModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     HttpService,
     UploaderServices,
     StaticUrlService,
     { provide: NZ_I18N, useValue: zh_CN },
+    { provide: LOCALE_ID , useValue: 'zh-Hans'},
     [
       {
         provide: HTTP_INTERCEPTORS,

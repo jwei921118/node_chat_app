@@ -1,0 +1,33 @@
+{
+    "proName": "Academic exchange",
+    "commom": {
+        "ganderText": "gender",
+        "maleText": "male",
+        "female": "female"
+    },
+    "login": {
+        "toggleL": "Switch language",
+        "userPlaceHolder": "Please enter user",
+        "pswPlaceHolder": "Please enter your password",
+        "loginText": "login",
+        "tipsText1": "forget password?",
+        "tipsText2": "Registration",
+        "tipsText3": "Login and representative read and agree",
+        "tipsText4": "Overlord clause"
+    },
+    "signUp": {
+        "emailText": "email",
+        "emailDirty": "Please enter email",
+        "userText": "username",
+        "userDirty": "Please enter username!",
+        "passwordText": "password",
+        "passwordDirty": "Please enter password!",
+        "checkPasswordText": "confirm password",
+        "checkPasswordDirty": "Please enter confirm password!",
+        "checkPasswordError": "Confirm password is incorrect",
+        "telphoneText": "telphone",
+        "telphoneDirty": "Please enter telphone!",
+        "ganderDirty": "Prohibition of unidentified gender registration",
+        "signUpText": "Registration"
+    }
+}

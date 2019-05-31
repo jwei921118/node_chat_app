@@ -1,6 +1,7 @@
 import { Component, OnInit , ViewEncapsulation} from '@angular/core';
 // import { HttpService } from '../servers/http.service';
 // import { UploaderServices } from '../servers/uploader.service';
+import { TranslateService } from '@ngx-translate/core';
 import { StaticUrlService } from '../servers/staticurl.service';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
@@ -20,11 +21,19 @@ export class LoginComponent implements OnInit {
     password: ''
   };
   cookieUserShow = false;
+  currentLange = '';
   constructor(
     private router: Router,
     private sus: StaticUrlService,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private translate: TranslateService
   ) {
+    this.translate.addLangs(['zh', 'en']);
+    // 获取当前浏览器环境的语言
+    const broswerLang = this.translate.getBrowserLang();
+
+    this.translate.use(broswerLang.match(/en|zh/) ? broswerLang : 'zh');
+    this.currentLange = broswerLang.match(/en|zh/) ? broswerLang : 'zh';
     this.cookieUser = [];
   }
 
@@ -36,6 +45,10 @@ export class LoginComponent implements OnInit {
 
     socket.on('data' , (data) => {
       console.log(data);
+    });
+
+    this.translate.onLangChange.subscribe((params) => {
+      console.log(params);
     });
   }
 
@@ -73,6 +86,14 @@ export class LoginComponent implements OnInit {
    */
   progress(v) {
     console.log(v);
+  }
+
+  /**
+   * 切换语言
+   */
+  toggleLanguage() {
+    this.currentLange = this.currentLange === 'zh' ? 'en' : 'zh';
+    this.translate.use(this.currentLange);
   }
 
 }

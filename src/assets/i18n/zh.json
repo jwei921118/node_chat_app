@@ -1,0 +1,33 @@
+{
+    "proName": "学术交流",
+    "commom": {
+        "ganderText": "性别",
+        "maleText": "男",
+        "female": "女"
+    },
+    "login": {
+        "toggleL": "切换语言",
+        "userPlaceHolder": "请输入用户",
+        "pswPlaceHolder": "请输入密码",
+        "loginText": "登   录",
+        "tipsText1": "忘记密码?",
+        "tipsText2": "新用户注册",
+        "tipsText3": "登录及代表阅读并同意",
+        "tipsText4": "霸王条款"
+    },
+    "signUp": {
+        "emailText": "邮箱",
+        "emailDirty": "请输入邮箱",
+        "userText": "用户名",
+        "userDirty": "请输入用户名",
+        "passwordText": "密码",
+        "passwordDirty": "请输入密码!",
+        "checkPasswordText": "确认密码",
+        "checkPasswordDirty": "请输入密码",
+        "checkPasswordError": "确认密码不正确",
+        "telphoneText": "电话",
+        "telphoneDirty": "请输入电话号码",
+        "ganderDirty": "禁止不明性别注册",
+        "signUpText": "注  册"
+    }
+}

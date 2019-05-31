@@ -1,5 +1,9 @@
 <div class="login-box">
     <div class="main-box">
+        <div class="icon-translate" (click)="toggleLanguage()">
+            <i nz-icon nzType="swap" nzTheme="outline"></i>
+            <span>切换语言</span>
+        </div>
         <div class="logo">
             <i class="iconfont icon-dog"></i>
             <span>D</span>
@@ -7,7 +11,7 @@
         </div>
         <div class="form-login">
             <div class=form-group>
-                <input type="text" nz-input [(ngModel)]="user.username" placeholder="请输入用户名">
+                <input type="text" nz-input [(ngModel)]="user.username" placeholder="请输入用户名" >
                 <i nz-icon class="icon-toggle" [type]="cookieUserShow?'up':'down'" theme="outline" (click)="toggleUser()"></i>
                 <div class="drop-user" *ngIf="cookieUserShow">
                     <ul><li *ngFor="let item of cookieUser">{{item.userAccount}}</li></ul>
@@ -17,14 +21,17 @@
                 <input type="password" nz-input [(ngModel)]="user.password" placeholder="请输入密码">
             </div>
             <div class="form-group m-t-20">
-                <button nz-button nzType="primary" nzBlock (click)="login()">登 &nbsp;&nbsp; 录</button>
+                <button nz-button nzType="primary" nzBlock (click)="login()" i18n>登 &nbsp;&nbsp; 录</button>
             </div>
             <div class="form-group">
-                <a class="fll" href="javascript:void(0)">忘记密码?</a>
-                <a class="flr" href="javascript:void(0)" (click)="toSignUp()">新用户注册</a>
+                <a class="fll" href="javascript:void(0)" i18n>忘记密码?</a>
+                <a class="flr" href="javascript:void(0)" (click)="toSignUp()" i18n>新用户注册</a>
             </div>
         </div>
         <!-- <p [innerHTML]="htmlSnippet"></p> -->
-        <p class="tips">登录及代表阅读并同意<a href="javascript:void(0)">霸王条款</a></p>
+        <p class="tips">
+            <ng-container i18n>登录及代表阅读并同意</ng-container>
+            <a href="javascript:void(0)" i18n>霸王条款</a>
+        </p>
     </div>
 </div> 

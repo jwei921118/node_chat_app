@@ -1,8 +1,11 @@
 apps:
   - script : './server/nodeServer.js'
-    instances: 4
+    name: 'nodeServer'
+    instances: 1
     exec_mode: cluster
-  - script: '/server/ws/index.js'
+    watch: true
+  - script: './server/ws/index.js'
+  name: 'scoketServer'
     watch: true
     env:
       NODE_ENV: development
