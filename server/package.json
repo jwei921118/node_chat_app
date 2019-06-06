@@ -1,0 +1,28 @@
+{
+  "name": "chat-ws-pro",
+  "version": "0.0.0",
+  "scripts": {
+    "nodeStart": "node nodeServer.js",
+    "scoket": "node ./server/ws/index.js",
+    "test:watch": "mocha --watch --reporter min",
+    "test:debug": "node --inspect node_modules/mocha/bin/_mocha --watch --no-timeouts",
+    "node:debug": "node --inspect-brk nodeServer.js"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "core-js": "^2.5.4",
+    "express": "^4.16.4",
+    "koa-cors": "0.0.16",
+    "lodash": "^4.17.11",
+    "mysql": "^2.16.0",
+    "rxjs": "^6.0.0",
+    "socket.io": "^2.1.1",
+    "zone.js": "^0.8.26"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}

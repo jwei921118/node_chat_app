@@ -3,14 +3,14 @@
     "apps": [
         {
             "name": "nodeServer",
-            "script": "./server/nodeServer.js",
+            "script": "./nodeServer.js",
             "instances": 2,
             "exec_mode": "cluster",
             "watch": true
         },
         {
             "name": "scoketServer",
-            "script": "./server/ws/index.js",
+            "script": "./ws/index.js",
             "watch": true,
             "env": {
                 "NODE_NEV": "development"

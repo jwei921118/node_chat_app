@@ -4,10 +4,14 @@
     var app = express();
     var http = require('http');
     var server = http.createServer(app);
+    var path = require('path');
     // var io = http.server(app);
     // var scoket = require('socket.io');
 
     // scoket(io);
+    console.log(path);
+
+    console.log(__dirname);
 
     var login = require('./api/login.js');
     var user = require('./api/user.js');
@@ -23,7 +27,7 @@
     app.set(true)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
     server.listen(7200, () => console.log('Example app listening on port 7200!'));
     
-    process.on('SIGINT', function () {
-        console.log('stop');
-    });
+    // process.on('SIGINT', function () {
+    //     console.log('stop');
+    // });
     

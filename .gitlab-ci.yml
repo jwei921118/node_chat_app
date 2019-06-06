@@ -1,0 +1,70 @@
+# 次项目的 pipeline适合的场景
+stages: 
+  - preInstallNode
+  - deployNode
+  - preInstallWeb
+  - deployWeb
+#  - analysis
+
+# 准备node后台安装依赖
+preInstallNode:
+  stage: preInstallNode
+  script: 
+    - cd server
+    - cnpm install
+  only:
+        - master
+  cache:
+    paths:
+      - server/node_modules/
+  tags:
+      - web-shell
+
+# 部署node项目
+deployNode:
+  stage: deployNode
+  script:
+      - sudo cp -R server /home/seemmo/nodePro
+  only:
+    - master
+  cache:
+    paths:
+      - server
+  tags:
+      - web-shell
+
+      # 准备web端安装依赖
+preInstallWeb:
+  stage: preInstallWeb
+  script:
+    - echo $NODE_HOME
+    - npm -v
+    - echo '准备'
+# 显示当前路径
+    - cd client/
+    - cnpm install
+    - ls
+  only:
+        - master
+  cache:
+    paths:
+      - client/node_modules/
+  tags:
+      - web-shell
+
+# 构建前端项目
+deployWeb: 
+  stage: deployWeb
+  script:
+      - ls
+      - cd client
+      - npm run build
+      - sudo mv -f dist /home/seemmo/nodePro/server/dist
+  only:
+    - master
+  cache:
+    paths:
+      - client/dist
+  tags:
+      - web-shell
+  
